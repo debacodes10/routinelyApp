@@ -1,15 +1,10 @@
 import { ImageBackground, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
-import Login from './Login'
 
 export default function OnBoard() {
 
   const navigation = useNavigation()
-
-  function toLogin () {
-    navigation.navigate("Login")
-  }
 
   return (
     <ImageBackground source={require("../../assets/images/onBoard.webp")} resizeMode='cover'
@@ -17,7 +12,7 @@ export default function OnBoard() {
       <View style={styles.contentArea}>
         <Text style={[styles.text, {fontSize: 24, fontWeight: '300'}]}>Let's work together</Text>
         <Text style={[styles.text, {fontSize: 18, fontWeight: '400', textAlign: 'center'}]}>Stay on top of Uni life and make every moment count.</Text>
-        <TouchableOpacity style={styles.positiveBtn} onPress={toLogin}>
+        <TouchableOpacity style={styles.positiveBtn} onPress={()=>navigation.navigate("Register")}>
           <Text style={[styles.text, {fontSize: 24, fontWeight: '400' }]}>Let's Start</Text>
         </TouchableOpacity>
       </View>

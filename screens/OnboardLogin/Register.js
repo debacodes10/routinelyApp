@@ -5,10 +5,11 @@ import { useNavigation } from '@react-navigation/native'
 import AntDesign from "react-native-vector-icons/AntDesign"
 import Entypo from "react-native-vector-icons/Entypo"
 
-export default function Login() {
+export default function Register() {
 
     const navigation = useNavigation()
 
+    const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [passwd, setPasswd] = useState("")
     const [visible, setVisible] = useState(false)
@@ -17,10 +18,19 @@ export default function Login() {
         <ImageBackground source={require("../../assets/images/onBoard.webp")} resizeMode='cover'
           style={styles.imageBody}>
           <View style={styles.contentArea}>
-            <Text style={[styles.text, {fontSize: 28, fontWeight: '300'}]}>Login</Text>
+            <Text style={[styles.text, {fontSize: 28, fontWeight: '300'}]}>Create an account</Text>
             <Text style={[styles.text, {fontSize: 16, fontWeight: '500', color: '#CCC'}]}>
-                Please login to continue with your account
+                It's free and always will be :D
             </Text>
+            <View style={styles.inputContainer}>
+                <Text style={[styles.text, {fontSize: 20, fontWeight: '400'}]}>First Name</Text>
+                <TextInput 
+                placeholder='What should we call you?'
+                style={styles.textInput}
+                value={name}
+                onChangeText={(e)=>setName(e)}
+                placeholderTextColor={'#686D76'}/>
+            </View>
             <View style={styles.inputContainer}>
                 <Text style={[styles.text, {fontSize: 20, fontWeight: '400'}]}>Email</Text>
                 <TextInput 
@@ -58,19 +68,16 @@ export default function Login() {
                 </View>
             </View>
             <TouchableOpacity style={styles.positiveBtn} onPress={()=>navigation.goBack()}>
-              <Text style={[styles.text, {fontSize: 24, fontWeight: '400' }]}>Login</Text>
-            </TouchableOpacity>
-            <TouchableOpacity>
-                <Text style={[styles.text, {fontSize: 16, fontWeight: '500'}]}>Forgot password?</Text>
+              <Text style={[styles.text, {fontSize: 24, fontWeight: '400' }]}>Create account</Text>
             </TouchableOpacity>
             <View style={{display: 'flex', flexDirection: 'row', columnGap: 4,}}>
-                <Text style={[styles.text, {fontSize: 16, fontWeight: '300'}]}>New here?</Text>
-                <TouchableOpacity onPress={()=>navigation.navigate("Register")}>
-                    <Text style={[styles.text, {fontSize: 16, fontWeight: '500'}]}>Create an account</Text>
+                <Text style={[styles.text, {fontSize: 16, fontWeight: '300'}]}>Already have an account?</Text>
+                <TouchableOpacity onPress={()=>navigation.navigate("Login")}>
+                    <Text style={[styles.text, {fontSize: 16, fontWeight: '500'}]}>Login instead</Text>
                 </TouchableOpacity>
             </View>
             <View style={{rowGap: 12,}}>
-                <Text style={[styles.text, {fontSize: 16, fontWeight: '300'}]}>Login with socials</Text>
+                <Text style={[styles.text, {fontSize: 16, fontWeight: '300'}]}>Sign up with socials</Text>
                 <View style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around'}}>
                     <TouchableOpacity style={styles.socialBtn}>
                         <AntDesign name="apple1" size={25} color={"#EEE"} />
