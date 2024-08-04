@@ -95,7 +95,6 @@ export default function BottomNavigation( { active } ) {
             }
         </View>
     )
-}
 
 const styles = StyleSheet.create({
     container: {

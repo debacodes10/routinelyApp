@@ -10,13 +10,12 @@ import Reminders from "./screens/Reminders/Reminders";
 import Lecture from "./screens/Lecture/Lecture";
 import EachDay from "./screens/Lecture/EachDay";
 
-
 const Stack = createNativeStackNavigator();
 
 export default function App () {
   return(
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator initialRouteName="Dashboard">
         <Stack.Screen
         component={OnBoard}
         name="OnBoard"
