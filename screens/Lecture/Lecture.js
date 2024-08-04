@@ -3,20 +3,18 @@ import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useNavigation } from '@react-navigation/native'
 import BottomNavigation from '../../components/Navigation/BottomNavigation'
-import DualContainer from '../../components/Containers/DualContainer'
+import DaysContainer from '../../components/Containers/DaysContainer'
 
-export default function Dashboard() {
+export default function Lecture() {
 
     const navigation = useNavigation()
 
   return (
     <SafeAreaView style={styles.container}>
       <Text style={[styles.text, {fontWeight: '500', fontSize: 16, color: '#CCC'}]}>Hello, Shaan</Text>
-      <Text style={[styles.text, {fontWeight: '300', fontSize: 36, marginVertical: 12}]}>
-        You have 3 remaining classes and 2 pending tasks for today.
-      </Text>
-      <DualContainer />
-      <BottomNavigation active={"home"}/>
+      <Text style={[styles.text, {fontSize: 40, fontWeight: '300', marginVertical: 8,}]}>Your Week</Text>
+      <DaysContainer />
+      <BottomNavigation active={"lecture"}/>
     </SafeAreaView>
   )
 }
@@ -26,6 +24,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#18191A',
         height: '100%',
         paddingHorizontal: 8,
+        marginBottom: 0
     },
     text: {
         fontFamily: 'Outfit',
